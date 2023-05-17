@@ -3,6 +3,7 @@ import gsap from "gsap";
 import "./styles.css";
 
 const PhotographerPortfolio = () => {
+  const leftRef = useRef(null);
   const wrapperRef = useRef(null);
   const imgWrapperRef = useRef(null);
   const karinaRef = useRef(null);
@@ -13,6 +14,20 @@ const PhotographerPortfolio = () => {
 
   useEffect(() => {
     const tl = gsap.timeline();
+
+    tl.to(leftRef.current, {
+      delay: 0.8,
+      width: '50%',
+      ease: 'power2.inOut',
+      duration: 2
+    });
+
+    tl.to(karinaRef.current, {
+      delay: 1.5,
+      width: '800px',
+      ease: 'power2.inOut',
+      duration: 2
+    });
 
     tl.fromTo(
       imgWrapperRef.current,
@@ -48,7 +63,7 @@ const PhotographerPortfolio = () => {
 
   return (
     <div className="wrapper" ref={wrapperRef}>
-      <div className="left"></div>
+      <div className="left" ref={leftRef}></div>
       <div className="right"></div>
 
       <nav className="nav">
